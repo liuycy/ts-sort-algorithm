@@ -19,3 +19,12 @@ export function withTimeLogger(flag: string, func: Function) {
     return result;
   };
 }
+
+export function checkSortedList(list: number[]) {
+  for (let i = 1; i < list.length; i++) {
+    if (list[i] < list[i - 1]) {
+      throw new Error('this list is not sorted');
+    }
+  }
+  return true;
+}
