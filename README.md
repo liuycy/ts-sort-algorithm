@@ -4,3 +4,6 @@
 ## 运行代码
 - 先按照[官网步骤](https://github.com/denoland/deno_install)安装 deno 
 - 然后执行 `deno run sort.ts`
+
+## 测试用例
+- 执行 `deno test`

@@ -19,7 +19,7 @@ export default function quickSort(
   if (start === void 0) start = 0;
   if (end === void 0) end = list.length;
 
-  if (end - start < 2) return;
+  if (end - start < 2) return list;
 
   const pivot = start + ~~((end - start) * Math.random());
   const board = partition(list, start, end, pivot);
