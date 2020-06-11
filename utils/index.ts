@@ -28,3 +28,15 @@ export function checkSortedList(list: number[]) {
   }
   return true;
 }
+
+export function multistep(steps: Function[], args: any[], callback: Function) {
+  const tasks = steps.concat();
+  queueMicrotask(function tick() {
+    tasks.shift()!.apply(null, args);
+    if (tasks.length) {
+      queueMicrotask(tick);
+    } else {
+      callback.apply(null, args);
+    }
+  });
+}
