@@ -1,5 +1,6 @@
-export default function countSort(list: number[]): number[] {
-  const bucket = [] as number[];
+import type { NumberList } from '../types.ts';
+export default function countSort(list: NumberList): NumberList {
+  const bucket = [] as NumberList;
 
   for (let i = 0; i < list.length; i++) {
     bucket[list[i]] = 1 + (bucket[list[i]] || 0);

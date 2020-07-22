@@ -1,6 +1,7 @@
 import { swap } from '../utils/index.ts';
+import type { NumberList } from '../types.ts';
 
-export default function heapSort(list: number[]): number[] {
+export default function heapSort(list: NumberList): NumberList {
   for (let i = 0; i < list.length; i++) {
     heapInsert(list, i);
   }
@@ -13,7 +14,7 @@ export default function heapSort(list: number[]): number[] {
   return list;
 }
 
-function heapify(list: number[], idx: number, len: number) {
+function heapify(list: NumberList, idx: number, len: number) {
   let next = 2 * idx + 1;
 
   while (next < len) {
@@ -24,7 +25,7 @@ function heapify(list: number[], idx: number, len: number) {
   }
 }
 
-function heapInsert(list: number[], idx: number) {
+function heapInsert(list: NumberList, idx: number) {
   let pid = (idx - 1) >> 1;
 
   while (pid > -1 && list[idx] > list[pid]) {

@@ -1,6 +1,12 @@
 import { swap } from '../utils/index.ts';
+import type { NumberList } from '../types.ts';
 
-function partition(list: number[], start: number, end: number, pivot: number) {
+function partition(
+  list: NumberList,
+  start: number,
+  end: number,
+  pivot: number
+) {
   swap(list, start, pivot);
 
   for (let i = start; i < end; i++) {
@@ -12,7 +18,7 @@ function partition(list: number[], start: number, end: number, pivot: number) {
 }
 
 export default function quickSort(
-  list: number[],
+  list: NumberList,
   start?: number,
   end?: number
 ) {

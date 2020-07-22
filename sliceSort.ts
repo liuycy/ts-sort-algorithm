@@ -1,7 +1,8 @@
 import quickSort from './algorithm/quickSort.ts';
 import { multistep, randomListInRange } from './utils/index.ts';
+import type { NumberList } from './types.ts';
 
-function buildSteps(list: number[], size = 10) {
+function buildSteps(list: NumberList, size = 10) {
   const steps = [] as Function[];
   const count = ~~(list.length / size) + 1;
 

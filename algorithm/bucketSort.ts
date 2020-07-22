@@ -1,4 +1,6 @@
-export default function bucketSort(list: number[], size = 10) {
+import type { NumberList } from '../types.ts';
+
+export default function bucketSort(list: NumberList, size = 10) {
   let max = list[0];
   let min = list[0];
 
@@ -8,16 +10,15 @@ export default function bucketSort(list: number[], size = 10) {
   }
 
   if (min !== max) {
-    let bucket = [] as Array<number[]>;
+    let buckets: Array<number[]> = [];
 
     for (let i = 0; i < list.length; i++) {
       const item = list[i];
       const idx = ~~(((item - min) / (max - min)) * (size - 1));
-      !bucket[idx] && (bucket[idx] = []);
-      bucket[idx].push(item);
+      !buckets[idx] && (buckets[idx] = []);
+      buckets[idx].push(item);
     }
-
-    bucket.reduce((i, arr) => {
+    buckets.reduce((i, arr) => {
       bucketSort(arr);
       for (let j = 0; j < arr.length; j++) {
         list[i++] = arr[j];

@@ -1,4 +1,5 @@
 import { swap } from '../utils/index.ts';
+import type { NumberList } from '../types.ts';
 
 // 采用该算法生成 gaps, 最坏时间复杂度为 O(N ** (4/3))
 // k 是从 0 开始的正整数
@@ -11,7 +12,7 @@ function calcGap(k: number) {
 }
 
 // 生成所有 小于 正整数 n 的 gaps
-function getGapsOf(n: number): number[] {
+function getGapsOf(n: number): Array<number> {
   const result = [calcGap(0)];
   while (result[result.length - 1] < n) {
     result.push(calcGap(result.length));
@@ -25,7 +26,7 @@ function getGapsOf(n: number): number[] {
 // 第一步 step 等于靠右较大的下标, 从该下标对数组进行 insertSort;
 // 每一步递减 step, 重复进行 insertSort;
 // 最后 step = 1, 已经得到一个几乎有序的数组, 再进行一次 insertSort, 排序完成
-export default function shellSort(list: number[]) {
+export default function shellSort(list: NumberList) {
   let len = list.length;
   const steps = getGapsOf(len);
 

@@ -1,6 +1,7 @@
 import { swap } from '../utils/index.ts';
+import type { NumberList } from '../types.ts';
 
-export default function bubbleSort(list: number[]) {
+export default function bubbleSort(list: NumberList) {
   for (let i = 0; i < list.length; i++) {
     let isSorted = true; // 用这个变量优化一下冒泡排序
     for (let j = 0; j < list.length; j++) {

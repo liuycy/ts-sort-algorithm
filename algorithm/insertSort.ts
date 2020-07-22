@@ -1,4 +1,6 @@
-export default function insertSort(list: number[]) {
+import type { NumberList } from '../types.ts';
+
+export default function insertSort(list: NumberList) {
   for (let i = 1; i < list.length; i++) {
     let cur = i;
     let cv = list[cur];

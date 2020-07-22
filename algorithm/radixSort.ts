@@ -1,4 +1,6 @@
-export default function radixSort(list: number[]) {
+import type { NumberList } from '../types.ts';
+
+export default function radixSort(list: NumberList) {
   let max = -Infinity;
   let buckets = [] as Array<number[]>;
   let digit = 1;

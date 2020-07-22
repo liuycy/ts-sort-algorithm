@@ -1,13 +1,17 @@
-export function swap(list: number[], i: number, j: number) {
+import type { NumberList } from '../types.ts';
+
+export function swap(list: NumberList, i: number, j: number) {
   let tmp = list[i];
   list[i] = list[j];
   list[j] = tmp;
 }
 
 export function randomListInRange(n: number) {
-  return Array(n)
-    .fill(0)
-    .map(() => ~~(n * Math.random()));
+  return new Array(n).fill(0).map(() => ~~(n * Math.random()));
+}
+
+export function randomUint32ArrayInRange(n: number) {
+  return new Uint32Array(n).fill(0).map(() => ~~(n * Math.random()));
 }
 
 export function withTimeLogger(flag: string, func: Function) {
@@ -20,7 +24,7 @@ export function withTimeLogger(flag: string, func: Function) {
   };
 }
 
-export function checkSortedList(list: number[]) {
+export function checkSortedList(list: NumberList) {
   for (let i = 1; i < list.length; i++) {
     if (list[i] < list[i - 1]) {
       throw new Error('this list is not sorted');

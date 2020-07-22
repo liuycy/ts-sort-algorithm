@@ -1,6 +1,7 @@
 import { randomListInRange } from './utils/index.ts';
+import type { NumberList } from './types.ts';
 
-function buildSteps(list: number[], size = 10) {
+function buildSteps(list: NumberList, size = 10) {
   const count = ~~(list.length / size) + 1;
   const url = new URL('./workers/quickSort.ts', import.meta.url).href;
   const result = [] as Promise<any>[];
