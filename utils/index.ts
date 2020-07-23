@@ -34,7 +34,7 @@ export function checkSortedList(list: NumberList) {
 }
 
 export function multistep(steps: Function[], args: any[], callback: Function) {
-  const tasks = steps.concat();
+  const tasks = steps;
   queueMicrotask(function tick() {
     tasks.shift()!.apply(null, args);
     if (tasks.length) {
